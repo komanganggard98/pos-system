@@ -38,15 +38,17 @@ class CustomerController extends Controller
         ]);
 
         $customer = Customer::create($validated);
-        
+
+        $message = 'Customer created successfully';
         if ($request->expectsJson() && !$request->header('X-Inertia')) {
             return response()->json([
-                'message' => 'Customer created successfully',
+                'message' => $message,
                 'data' => $customer
             ], 201);
         }
 
-        return redirect()->route('customers.index')->with('success', 'Customer created successfully.');
+        Inertia::flas('toast', ['type' => 'success', 'message' => $message]);
+        return redirect()->route('customers.index');
     }
 
     public function update(Request $request, Customer $customer)
@@ -58,7 +60,8 @@ class CustomerController extends Controller
         ]);
 
         $customer->update($validated);
-        return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
+        Inertia::flash('toast', ['type' => 'success', 'message' => 'Customer updated successfully.']);
+        return redirect()->route('customers.index');
     }
 
     public function destroy(Customer $customer)

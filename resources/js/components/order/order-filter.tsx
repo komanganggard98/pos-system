@@ -74,7 +74,7 @@ export default function OrderFilter({ cashiers, filters }: OrderFilterProps) {
     return (
         <form
             onSubmit={handleApplyFilter}
-            className="mb-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+            className="mb-6 rounded-xl border border-gray-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900"
         >
             <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-gray-800 dark:text-gray-200">
                 <Filter className="h-4 w-4 text-primary" />
@@ -90,7 +90,7 @@ export default function OrderFilter({ cashiers, filters }: OrderFilterProps) {
                     <select
                         value={values.status}
                         onChange={(e) => handleChange('status', e.target.value)}
-                        className="h-9 w-full rounded-md border border-gray-200 bg-white px-2.5 text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                        className="h-9 w-full rounded-md border border-gray-200 bg-white px-2.5 text-xs dark:border-neutral-700 dark:bg-neutral-800 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none"
                     >
                         <option value="">All Status</option>
                         <option value="paid">Paid</option>
@@ -107,7 +107,7 @@ export default function OrderFilter({ cashiers, filters }: OrderFilterProps) {
                     <select
                         value={values.cashiers_id}
                         onChange={(e) => handleChange('cashiers_id', e.target.value)}
-                        className="h-9 w-full rounded-md border border-gray-200 bg-white px-2.5 text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                        className="h-9 w-full rounded-md border border-gray-200 bg-white px-2.5 text-xs dark:border-neutral-700 dark:bg-neutral-800 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none"
                     >
                         <option value="">All Cashiers</option>
                         {cashiers.map((u:any) => (
@@ -133,7 +133,7 @@ export default function OrderFilter({ cashiers, filters }: OrderFilterProps) {
                             format="YYYY-MM-DD"
                             placeholder="Select start & end date..."
                             containerClassName="w-full"
-                            inputClass="h-9 w-full rounded-md border border-gray-200 bg-white pl-8 pr-3 text-xs text-gray-700 focus:border-primary focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-200"
+                            inputClass="h-9 w-full rounded-md border border-gray-200 bg-white pl-8 pr-3 text-xs text-gray-700 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-gray-200"
                         />
                     </div>
                 </div>
@@ -143,13 +143,12 @@ export default function OrderFilter({ cashiers, filters }: OrderFilterProps) {
                 <Button
                     type="button"
                     variant="outline"
-                    size="sm"
                     onClick={handleReset}
                 >
                     <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
                     Reset
                 </Button>
-                <Button type="submit" size="sm">
+                <Button type="submit">
                     <Search className="mr-1.5 h-3.5 w-3.5" />
                     Apply Filter
                 </Button>

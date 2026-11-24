@@ -3,13 +3,11 @@ import { IndexCustomerProps } from '@/types';
 import { index } from '@/routes/customers';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { CustomPagination } from '@/components/custom-pagination';
-import { Button } from '@/components/ui/button';
-import { Search, TrashIcon } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useEffect } from 'react';
 import { useLiveSearch } from '@/hooks/use-live-search';
 
-export default function Index({customers, status, filter}: IndexCustomerProps) {
+export default function Index({customers, filter}: IndexCustomerProps) {
     const {search, setSearch} = useLiveSearch({
         initialValue:filter,
         url:index.url(),
@@ -20,12 +18,6 @@ export default function Index({customers, status, filter}: IndexCustomerProps) {
     const visitPage = (page: number) => {
         router.get(index(), { page }, { preserveState: true, replace: true });
     }
-
-    useEffect(() => {
-        if (status) {
-            alert(status);
-        }
-    }, [status]);
 
     return (
         <>

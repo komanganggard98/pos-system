@@ -1,7 +1,7 @@
 import { formatRupiah } from "@/lib/utils";
-import { Customer, ShoppingCartFormType } from "@/types";
+import { ShoppingCartFormType } from "@/types";
 import { CartItem } from "@/types/cart";
-import { AlertCircle, ChevronDown, ChevronUp, CreditCard, Minus, Plus, ShoppingCart, Tag, Trash2, User } from "lucide-react";
+import { AlertCircle, ChevronDown, ChevronUp, CreditCard, Minus, Plus, ShoppingCart, Tag, Trash2} from "lucide-react";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import CustomerSelector from "./customer-selector";

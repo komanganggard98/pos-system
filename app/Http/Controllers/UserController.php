@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Inertia\Inertia;
 use App\Services\UserService;
@@ -42,10 +41,8 @@ class UserController extends Controller
         ]);
 
         $this->userService->store($validated);
-
-        return redirect()
-            ->route('users.index')
-            ->with('success', 'User created successfully.');
+        Inertia::flash('toast', ['type' => 'success', 'message' => 'User created successfully.']);
+        return redirect()->route('users.index');
     }
 
     public function edit(User $user)
@@ -67,9 +64,7 @@ class UserController extends Controller
         ]);
 
         $this->userService->update($user, $validated);
-
-        return redirect()
-            ->route('users.index')
-            ->with('success', 'User updated successfully.');
+        Inertia::flash('toast',['type' => 'success', 'message' => 'User updated successfully.']);
+        return redirect()->route('users.index');
     }
 }

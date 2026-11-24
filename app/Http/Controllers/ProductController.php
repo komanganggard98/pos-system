@@ -49,7 +49,8 @@ class ProductController extends Controller
         ]);
 
         $this->productService->store($request, $validated);
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        Inertia::flash('toast', ['type' => 'success', 'message' => __('Product created successfully.')]);
+        return redirect()->route('products.index');
     }
 
     public function edit(Product $product)
@@ -73,7 +74,8 @@ class ProductController extends Controller
         ]);
 
         $this->productService->update($product, $request, $validated);
-        return redirect()->route('products.index')->with(['message' => 'Product updated successfully']);
+        Inertia::flash('toast', ['type' => 'success', 'message' => __('Product updated successfully.')]);
+        return redirect()->route('products.index');
     }
 
     public function destroy(Product $product)

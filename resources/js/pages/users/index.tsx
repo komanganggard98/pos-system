@@ -6,7 +6,6 @@ import { CustomPagination } from '@/components/custom-pagination';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useEffect } from 'react';
 import { useLiveSearch } from '@/hooks/use-live-search';
 
 export default function Index({users, status, filter}: IndexUserProps) {
@@ -20,12 +19,6 @@ export default function Index({users, status, filter}: IndexUserProps) {
     const visitPage = (page: number) => {
         router.get(index(), { page }, { preserveState: true, replace: true });
     }
-
-    useEffect(() => {
-        if (status) {
-            alert(status);
-        }
-    }, [status]);
 
     return (
         <>

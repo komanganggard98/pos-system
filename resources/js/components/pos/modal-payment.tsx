@@ -1,6 +1,6 @@
 import { formatRupiah } from "@/lib/utils";
 import { ModalPaymentType } from "@/types";
-import { Banknote, CheckCircle2, Mail, Phone, QrCode, X } from "lucide-react";
+import { CheckCircle2, X } from "lucide-react";
 import { Button } from "../ui/button";
 import { Label } from '@/components/ui/label';
 import { Input } from "../ui/input";

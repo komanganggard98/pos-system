@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Models\Product;
 use App\Services\{OrderService, UserService};
 use Illuminate\Http\Request;

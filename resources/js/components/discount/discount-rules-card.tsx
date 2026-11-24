@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Tag, Percent, DollarSign } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -35,7 +35,7 @@ export default function DiscountRulesCard({ discount = {}, errors = {} }: Props)
     return (
         <div className="space-y-6">
             {/* General Promo Details */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
                 <div className="mb-5 flex items-center gap-2 border-b border-gray-100 pb-3 dark:border-neutral-800">
                     <Tag className="h-5 w-5 text-primary" />
                     <h2 className="text-base font-semibold text-gray-900 dark:text-white">
@@ -76,7 +76,7 @@ export default function DiscountRulesCard({ discount = {}, errors = {} }: Props)
             </div>
 
             {/* Discount Value & Conditions */}
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
                 <div className="mb-5 flex items-center gap-2 border-b border-gray-100 pb-3 dark:border-neutral-800">
                     <Percent className="h-5 w-5 text-primary" />
                     <h2 className="text-base font-semibold text-gray-900 dark:text-white">
@@ -195,7 +195,7 @@ export default function DiscountRulesCard({ discount = {}, errors = {} }: Props)
             </div>
 
             {/* Availability Status Card */}
-            <div className="rounded-xl border border-gray-200 bg-sidebar p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="rounded-xl border border-gray-200 p-6 dark:border-neutral-800 dark:bg-neutral-900">
                 <h2 className="mb-3 text-base font-semibold text-gray-900 dark:text-white">
                     Active Discount
                 </h2>

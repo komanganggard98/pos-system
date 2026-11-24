@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
 import { Head, Link, router } from '@inertiajs/react';
-import { Modal } from '@mui/material';
 import {
     Banknote,
     Calendar as CalendarIcon,
     Filter,
-    Receipt,
+    LucideShieldAlert,
     RotateCcw,
     ShoppingBag,
     Tag,
 } from 'lucide-react';
 import ReactMultiDatePicker, { DateObject } from 'react-multi-date-picker';
 import { Button } from '@/components/ui/button';
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/ui/table';
-import { formatDate, formatRupiah, getStatusBadgeClass } from '@/lib/utils';
+import { formatRupiah } from '@/lib/utils';
 import OrderTable from '@/components/order/order-table';
 import { dashboard } from '@/routes';
 import { DashboardProps } from '@/types/dashboard';
@@ -101,15 +92,15 @@ export default function Dashboard({
         <>
             <Head title="Admin Dashboard - POS System" />
 
-            <div className="min-h-screen bg-slate-50 p-4 sm:p-6">
+            <div className="min-h-screen p-4 sm:p-6">
                 <div className="mx-auto max-w-7xl space-y-6">
                     {/* Header */}
                     <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                         <div>
-                            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+                            <h1 className="text-2xl font-bold tracking-tight">
                                 Admin Dashboard
                             </h1>
-                            <p className="text-sm text-slate-500">
+                            <p className="text-sm text-muted-foreground">
                                 Sales Summary, Cashier Performance & Order History
                             </p>
                         </div>
@@ -117,50 +108,50 @@ export default function Dashboard({
 
                     {/* KPI Cards */}
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="rounded-xl border dark:bg-neutral-800 p-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-medium text-slate-500">Total Omzet</span>
-                                <div className="rounded-lg bg-emerald-50 p-2 text-emerald-600">
+                                <span className="text-xs font-medium text-muted-foreground">Total Omzet</span>
+                                <div className="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 p-2 text-emerald-600">
                                     <Banknote className="h-4 w-4" />
                                 </div>
                             </div>
-                            <p className="mt-2 text-xl font-bold text-slate-900">
+                            <p className="mt-2 text-xl font-bold">
                                 {formatRupiah(stats.total_revenue)}
                             </p>
                         </div>
 
-                        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="rounded-xl border dark:bg-neutral-800 p-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-medium text-slate-500">Total Order</span>
-                                <div className="rounded-lg bg-blue-50 p-2 text-blue-600">
+                                <span className="text-xs font-medium text-muted-foreground">Total Order</span>
+                                <div className="rounded-lg bg-blue-50 dark:bg-blue-950/30 p-2 text-blue-600">
                                     <ShoppingBag className="h-4 w-4" />
                                 </div>
                             </div>
-                            <p className="mt-2 text-xl font-bold text-slate-900">
+                            <p className="mt-2 text-xl font-bold">
                                 {stats.total_orders}
                             </p>
                         </div>
 
-                        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="rounded-xl border dark:bg-neutral-800 p-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-medium text-slate-500">Total Diskon</span>
-                                <div className="rounded-lg bg-amber-50 p-2 text-amber-600">
+                                <span className="text-xs font-medium text-muted-foreground">Total Diskon</span>
+                                <div className="rounded-lg bg-amber-50 dark:bg-amber-950/30  p-2 text-amber-600">
                                     <Tag className="h-4 w-4" />
                                 </div>
                             </div>
-                            <p className="mt-2 text-xl font-bold text-slate-900">
+                            <p className="mt-2 text-xl font-bold">
                                 {formatRupiah(stats.total_discount)}
                             </p>
                         </div>
 
-                        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <div className="rounded-xl border dark:bg-neutral-800 p-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-medium text-slate-500">Stok Menipis (&le;10)</span>
-                                <div className="rounded-lg bg-rose-50 p-2 text-rose-600">
-                                    {/* <PackageAlert className="h-4 w-4" /> */}
+                                <span className="text-xs font-medium text-muted-foreground">Stok Menipis (&le;10)</span>
+                                <div className="rounded-lg bg-rose-50 dark:bg-rose-950/30 p-2 text-rose-600">
+                                    <LucideShieldAlert className="h-4 w-4" />
                                 </div>
                             </div>
-                            <p className="mt-2 text-xl font-bold text-slate-900">
+                            <p className="mt-2 text-xl font-bold">
                                 {stats.low_stock_count} Produk
                             </p>
                         </div>
@@ -169,10 +160,10 @@ export default function Dashboard({
                     {/* Filter Bar */}
                     <form
                         onSubmit={handleFilterSubmit}
-                        className="grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:grid-cols-6 sm:items-end"
+                        className="grid grid-cols-1 gap-3 rounded-xl border p-4 sm:grid-cols-6 sm:items-end"
                     >
                         <div className="sm:col-span-1">
-                            <label className="mb-1 block text-xs font-medium text-slate-500">
+                            <label className="mb-1 block text-xs font-medium">
                                 Cashier
                             </label>
                             <select
@@ -180,7 +171,7 @@ export default function Dashboard({
                                 onChange={(e) =>
                                     setValues((prev) => ({ ...prev, cashiers_id: e.target.value }))
                                 }
-                                className="h-9 w-full rounded-md border border-slate-200 bg-white px-2.5 text-xs text-slate-700 focus:border-blue-500 focus:outline-none"
+                                className="h-9 w-full rounded-md border dark:bg-neutral-800 px-2.5 text-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none"
                             >
                                 <option value="">All Cashiers</option>
                                 {cashiers.map((cashier) => (
@@ -192,7 +183,7 @@ export default function Dashboard({
                         </div>
 
                         <div className="sm:col-span-1">
-                            <label className="mb-1 block text-xs font-medium text-slate-500">
+                            <label className="mb-1 block text-xs font-medium ">
                                 Status
                             </label>
                             <select
@@ -200,7 +191,7 @@ export default function Dashboard({
                                 onChange={(e) =>
                                     setValues((prev) => ({ ...prev, status: e.target.value }))
                                 }
-                                className="h-9 w-full rounded-md border border-slate-200 bg-white px-2.5 text-xs text-slate-700 focus:border-blue-500 focus:outline-none"
+                                className="h-9 w-full rounded-md border dark:bg-neutral-800 px-2.5 text-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none"
                             >
                                 <option value="">All Status</option>
                                 <option value="paid">Paid</option>
@@ -210,11 +201,11 @@ export default function Dashboard({
                         </div>
 
                         <div className="sm:col-span-2">
-                            <label className="mb-1 block text-xs font-medium text-slate-500">
+                            <label className="mb-1 block text-xs font-medium ">
                                 Date Range (Start - End)
                             </label>
                             <div className="relative flex items-center">
-                                <CalendarIcon className="pointer-events-none absolute left-2.5 z-10 h-3.5 w-3.5 text-slate-400" />
+                                <CalendarIcon className="pointer-events-none absolute left-2.5 z-10 h-3.5 w-3.5" />
                                 <DatePicker
                                     range
                                     rangeHover
@@ -223,7 +214,7 @@ export default function Dashboard({
                                     format="YYYY-MM-DD"
                                     placeholder="Select start & end date..."
                                     containerClassName="w-full"
-                                    inputClass="h-9 w-full rounded-md border border-slate-200 bg-white pl-8 pr-3 text-xs text-slate-700 focus:border-blue-500 focus:outline-none"
+                                    inputClass="h-9 w-full rounded-md border dark:bg-neutral-800 pl-8 pr-3 text-xs focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:outline-none"
                                 />
                             </div>
                         </div>

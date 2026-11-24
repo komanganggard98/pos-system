@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\PaymentService;
 use Illuminate\Validation\ValidationException;
+use Inertia\Inertia;
 use Throwable;
 
 class PaymentController extends Controller
@@ -30,17 +31,18 @@ class PaymentController extends Controller
             $result = $this->paymentService->handleCheckout($validated);
         }catch (ValidationException $e) {
             // Mengembalikan error validasi ke Inertia / form dengan jelas
-            return redirect()->back()->withErrors($e->errors())->withInput();
+            Inertia::flash('toast', ['type' => 'error', 'message' => $e->errors()]);
+            // return redirect()->back()->withErrors($e->errors())->withInput();
+            return redirect()->back();
         } catch (Throwable $th) {
             report($th);
+            Inertia::flash('toast', ['type' => 'error', 'message' => 'An error occurred while processing the transaction: ' . $th->getMessage()]);
             return redirect()->back()->withErrors([
                 'checkout' => 'An error occurred while processing the transaction: ' . $th->getMessage(),
             ]);
         }
 
-        return redirect()->back()->with(
-            'success',
-            'Cash transaction successful! Change: Rp ' . number_format($result['change'], 0, ',', '.')
-        );
+        Inertia::flash('toast',['type' => 'success', 'message' => 'Cash transaction successful! Change: Rp ' . number_format($result['change'], 0, ',', '.') ]);
+        return redirect()->back();
     }
 }

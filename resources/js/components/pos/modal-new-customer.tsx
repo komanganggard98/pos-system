@@ -1,5 +1,5 @@
 import { ModalNewCustomerType } from "@/types";
-import { CheckCircle2, Mail, Phone, User, X } from "lucide-react";
+import { CheckCircle2, Mail, Phone, User } from "lucide-react";
 import Modal from '@mui/material/Modal';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';

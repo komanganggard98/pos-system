@@ -16,7 +16,7 @@ class OrderController extends Controller
     }
     public function index(Request $request)
     {
-        $orders = $this->orderService->getData($request, true, 'id',' desc');
+        $orders = $this->orderService->getData($request, true, 'id','desc');
         $cashiers = $this->userService->getData(['role' => 'cashier'], false, 'name');
         
         return Inertia::render('orders/index', [

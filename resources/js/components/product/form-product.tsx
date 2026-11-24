@@ -64,7 +64,7 @@ export default function FormProduct({
                 <>
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                         <div className="flex flex-col gap-6 lg:col-span-2">
-                            <div className="rounded-xl border bg-sidebar p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                            <div className="rounded-xl border p-6 dark:border-neutral-800 dark:bg-neutral-900">
                                 <div className="mb-6 flex items-center gap-2 border-b border-gray-100 pb-3 dark:border-neutral-800">
                                     <Package className="h-5 w-5 text-primary" />
                                     <h2 className="text-base font-semibold text-gray-900 dark:text-white">
@@ -133,7 +133,7 @@ export default function FormProduct({
                             </div>
 
                             {/* Pricing & Inventory Card */}
-                            <div className="rounded-xl border border-gray-200 bg-sidebar p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                            <div className="rounded-xl border border-gray-200 p-6 dark:border-neutral-800 dark:bg-neutral-900">
                                 <div className="mb-5 flex items-center gap-2 border-b border-gray-100 pb-3 dark:border-neutral-800">
                                     <DollarSign className="h-5 w-5 text-primary" />
                                     <h2 className="text-base font-semibold text-gray-900 dark:text-white">
@@ -195,7 +195,7 @@ export default function FormProduct({
                         {/* Right Column: Media & Status (Takes 1/3 width on desktop) */}
                         <div className="space-y-6">
                             {/* Product Image Upload Card */}
-                            <div className="rounded-xl border border-gray-200 bg-sidebar p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                            <div className="rounded-xl border border-gray-200 p-6 dark:border-neutral-800 dark:bg-neutral-900">
                                 <h2 className="mb-4 text-base font-semibold text-gray-900 dark:text-white">
                                     Product Image
                                 </h2>
@@ -244,7 +244,7 @@ export default function FormProduct({
                             </div>
 
                             {/* Availability Status Card */}
-                            <div className="rounded-xl border border-gray-200 bg-sidebar p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                            <div className="rounded-xl border border-gray-200 p-6 dark:border-neutral-800 dark:bg-neutral-900">
                                 <h2 className="mb-3 text-base font-semibold text-gray-900 dark:text-white">
                                     Visibility Status
                                 </h2>

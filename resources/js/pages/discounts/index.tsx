@@ -6,11 +6,10 @@ import { CustomPagination } from '@/components/custom-pagination';
 import { Button } from '@/components/ui/button';
 import { Search, TrashIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useEffect } from 'react';
 import { formatRupiah } from '@/lib/utils';
 import { useLiveSearch } from '@/hooks/use-live-search';
 
-export default function Index({discounts, status, filter}: IndexDiscountProps) {
+export default function Index({discounts, filter}: IndexDiscountProps) {
     const {search, setSearch} = useLiveSearch({
         initialValue:filter,
         url:index.url(),
@@ -27,12 +26,6 @@ export default function Index({discounts, status, filter}: IndexDiscountProps) {
             destroy.delete(discountId);
         }
     }
-
-    useEffect(() => {
-        if (status) {
-            alert(status);
-        }
-    }, [status]);
 
     return (
         <>

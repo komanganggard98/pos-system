@@ -3,7 +3,7 @@ import { Search, Check, Package, Info, CheckCircle2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import InputError from '@/components/input-error';
 import { useLiveSearch } from '@/hooks/use-live-search';
-import discounts, { create } from '@/routes/discounts';
+import { create } from '@/routes/discounts';
 import { DiscountUpsertForm, Product } from '@/types';
 
 interface Props {
@@ -52,14 +52,14 @@ export default function DiscountProductSelector({
     };
 
     return (
-        <div className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
             {/* Hidden inputs agar <Form> otomatis mengirim array product_ids[] */}
             {selectedIds.map((id) => (
                 <input key={id} type="hidden" name="product_ids[]" value={id} />
             ))}
 
             {discount && (
-                <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 mb-5">
+                <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900 mb-5">
                     <div className="mb-3 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                             <CheckCircle2 className="h-4 w-4 text-emerald-600" />

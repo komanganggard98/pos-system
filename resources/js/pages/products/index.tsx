@@ -6,7 +6,6 @@ import { CustomPagination } from '@/components/custom-pagination';
 import { Button } from '@/components/ui/button';
 import { Search, TrashIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useEffect } from 'react';
 import { useLiveSearch } from '@/hooks/use-live-search';
 import { formatRupiah } from '@/lib/utils';
 
@@ -35,12 +34,6 @@ export default function Index({products, status, filter}: IndexProductProps) {
             });
         }
     }
-
-    useEffect(() => {
-        if (status) {
-            alert(status);
-        }
-    }, [status]);
 
     return (
         <>
